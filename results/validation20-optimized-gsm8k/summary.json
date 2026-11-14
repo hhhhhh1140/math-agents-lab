@@ -1,0 +1,21 @@
+[
+  {
+    "dataset": "gsm8k",
+    "mode": "multi",
+    "n": 20,
+    "accuracy": 0.85,
+    "errors": 1,
+    "unparsed": 1,
+    "mean_input_tokens": null,
+    "total_input_tokens": null,
+    "mean_output_tokens": null,
+    "total_output_tokens": null,
+    "mean_cached_tokens": null,
+    "mean_estimated_cost_usd": null,
+    "total_estimated_cost_usd": null,
+    "mean_llm_calls": 5.25,
+    "mean_tool_calls": 2.85,
+    "mean_rounds": 1.45,
+    "mean_latency_seconds": 28.310367117599707
+  }
+]

@@ -1,0 +1,69 @@
+{
+  "seed": 20261114,
+  "excluded_development_ids": [
+    "gsm8k/test/1214",
+    "gsm8k/test/588",
+    "test/algebra/101.json",
+    "test/precalculus/697.json"
+  ],
+  "samples": {
+    "gsm8k": {
+      "ids": [
+        "gsm8k/test/815",
+        "gsm8k/test/728",
+        "gsm8k/test/653",
+        "gsm8k/test/962",
+        "gsm8k/test/1067",
+        "gsm8k/test/984",
+        "gsm8k/test/427",
+        "gsm8k/test/960",
+        "gsm8k/test/1068",
+        "gsm8k/test/568",
+        "gsm8k/test/499",
+        "gsm8k/test/1269",
+        "gsm8k/test/797",
+        "gsm8k/test/1136",
+        "gsm8k/test/522",
+        "gsm8k/test/429",
+        "gsm8k/test/879",
+        "gsm8k/test/611",
+        "gsm8k/test/387",
+        "gsm8k/test/390"
+      ],
+      "sha256": "11c7c9068825e6dd160807807abcb8d4726bc71b36af360db44f69c1103abc41"
+    },
+    "math500": {
+      "ids": [
+        "test/geometry/880.json",
+        "test/geometry/172.json",
+        "test/number_theory/679.json",
+        "test/prealgebra/1113.json",
+        "test/intermediate_algebra/1806.json",
+        "test/number_theory/72.json",
+        "test/number_theory/203.json",
+        "test/geometry/615.json",
+        "test/geometry/711.json",
+        "test/algebra/2584.json",
+        "test/prealgebra/1251.json",
+        "test/prealgebra/1388.json",
+        "test/algebra/1282.json",
+        "test/intermediate_algebra/190.json",
+        "test/number_theory/368.json",
+        "test/algebra/1199.json",
+        "test/intermediate_algebra/428.json",
+        "test/algebra/1519.json",
+        "test/precalculus/1201.json",
+        "test/algebra/621.json"
+      ],
+      "sha256": "90062a1ad6156168bac5d0887f04be75acb16aada89dbbd5c255377c401ed560"
+    }
+  },
+  "images": {
+    "baseline": "sha256:d53a33616c282a2858c4690ea5e5456605b774f6e46ee6c3620c15901df3cdc6",
+    "optimized": "sha256:f952c74f9565013d149e0b61f2b5324fc6f2e9b7dad797590b1e54430dc06de1"
+  },
+  "optimized_source_sha256": {
+    "src/math_agents/optimized.py": "78976e2a72c05f202437c0036b228bb4df5ce845d9a46aee784707f78d69f604",
+    "src/math_agents/workflow.py": "116579c9c3bf1a55dee47baae233fc53fcb22700cd9fa829ae273d619cc15395"
+  }
+}

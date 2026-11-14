@@ -1,0 +1,4 @@
+dataset,mode,n,accuracy,errors,unparsed,mean_input_tokens,total_input_tokens,mean_output_tokens,total_output_tokens,mean_cached_tokens,mean_estimated_cost_usd,total_estimated_cost_usd,mean_llm_calls,mean_tool_calls,mean_rounds,mean_latency_seconds
+math500,direct,2,0.5,0,0,79.5,159,16.5,33,16,,,1,0,1,0.9796281049999891
+math500,multi,2,0.5,0,0,4094,8188,1123.5,2247,400,,,13,6,3,41.4788618945
+math500,single,2,0,0,0,705,1410,196.5,393,208,,,3,2,3,5.174391710999998

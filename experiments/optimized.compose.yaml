@@ -1,0 +1,3 @@
+services:
+  lab:
+    image: math-agents-lab:optimized-v2

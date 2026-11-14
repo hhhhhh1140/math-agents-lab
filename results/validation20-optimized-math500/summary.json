@@ -1,0 +1,21 @@
+[
+  {
+    "dataset": "math500",
+    "mode": "multi",
+    "n": 20,
+    "accuracy": 0.3,
+    "errors": 2,
+    "unparsed": 5,
+    "mean_input_tokens": null,
+    "total_input_tokens": null,
+    "mean_output_tokens": null,
+    "total_output_tokens": null,
+    "mean_cached_tokens": null,
+    "mean_estimated_cost_usd": null,
+    "total_estimated_cost_usd": null,
+    "mean_llm_calls": 6.2,
+    "mean_tool_calls": 3.9,
+    "mean_rounds": 2.4,
+    "mean_latency_seconds": 47.336561495549724
+  }
+]

@@ -1,0 +1,40 @@
+[
+  {
+    "dataset": "gsm8k",
+    "mode": "multi",
+    "n": 2,
+    "accuracy": 1,
+    "errors": 0,
+    "unparsed": 0,
+    "mean_input_tokens": 2145,
+    "total_input_tokens": 4290,
+    "mean_output_tokens": 389,
+    "total_output_tokens": 778,
+    "mean_cached_tokens": 560,
+    "mean_estimated_cost_usd": null,
+    "total_estimated_cost_usd": null,
+    "mean_llm_calls": 7,
+    "mean_tool_calls": 4,
+    "mean_rounds": 2,
+    "mean_latency_seconds": 14.298061277499073
+  },
+  {
+    "dataset": "math500",
+    "mode": "multi",
+    "n": 2,
+    "accuracy": 0,
+    "errors": 0,
+    "unparsed": 0,
+    "mean_input_tokens": 2243,
+    "total_input_tokens": 4486,
+    "mean_output_tokens": 631.5,
+    "total_output_tokens": 1263,
+    "mean_cached_tokens": 304,
+    "mean_estimated_cost_usd": null,
+    "total_estimated_cost_usd": null,
+    "mean_llm_calls": 7,
+    "mean_tool_calls": 4,
+    "mean_rounds": 2,
+    "mean_latency_seconds": 30.560599077000006
+  }
+]

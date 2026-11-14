@@ -1,0 +1,200 @@
+{
+  "gsm8k": {
+    "groups": {
+      "baseline/direct": {
+        "n": 20,
+        "correct": 0,
+        "accuracy": 0.0,
+        "wilson95": [
+          0.0,
+          0.16113012549493322
+        ],
+        "errors": 1,
+        "mean_rounds": 1,
+        "mean_calls": 1,
+        "known_tokens": 2303,
+        "usage_complete": false,
+        "tool_calls": 0,
+        "tool_failures": 0,
+        "solver_output_format_failures": 0,
+        "grading_unparsed": 2,
+        "accepted": 0,
+        "accepted_but_wrong": 0,
+        "parse_errors": 0
+      },
+      "baseline/single": {
+        "n": 20,
+        "correct": 10,
+        "accuracy": 0.5,
+        "wilson95": [
+          0.2992949144298199,
+          0.7007050855701801
+        ],
+        "errors": 1,
+        "mean_rounds": 2.9,
+        "mean_calls": 2.9,
+        "known_tokens": 19660,
+        "usage_complete": false,
+        "tool_calls": 38,
+        "tool_failures": 2,
+        "solver_output_format_failures": 0,
+        "grading_unparsed": 6,
+        "accepted": 0,
+        "accepted_but_wrong": 0,
+        "parse_errors": 0
+      },
+      "baseline/multi": {
+        "n": 20,
+        "correct": 6,
+        "accuracy": 0.3,
+        "wilson95": [
+          0.14547527396899385,
+          0.5189767762289793
+        ],
+        "errors": 3,
+        "mean_rounds": 2.95,
+        "mean_calls": 12.5,
+        "known_tokens": 90493,
+        "usage_complete": false,
+        "tool_calls": 114,
+        "tool_failures": 59,
+        "solver_output_format_failures": 43,
+        "grading_unparsed": 3,
+        "accepted": 0,
+        "accepted_but_wrong": 0,
+        "parse_errors": 0
+      },
+      "optimized/multi": {
+        "n": 20,
+        "correct": 17,
+        "accuracy": 0.85,
+        "wilson95": [
+          0.6395767041130426,
+          0.9476322080405041
+        ],
+        "errors": 1,
+        "mean_rounds": 1.45,
+        "mean_calls": 5.25,
+        "known_tokens": 43991,
+        "usage_complete": false,
+        "tool_calls": 57,
+        "tool_failures": 0,
+        "solver_output_format_failures": 1,
+        "grading_unparsed": 1,
+        "accepted": 16,
+        "accepted_but_wrong": 1,
+        "parse_errors": 0
+      }
+    },
+    "paired": {
+      "paired_complete_n": 16,
+      "baseline_correct": 6,
+      "optimized_correct": 14,
+      "wins": 8,
+      "losses": 0,
+      "mcnemar_exact_p": 0.0078125,
+      "baseline_tokens": 74574,
+      "optimized_tokens": 34110,
+      "token_change_fraction": -0.5426019792420951
+    }
+  },
+  "math500": {
+    "groups": {
+      "baseline/direct": {
+        "n": 20,
+        "correct": 2,
+        "accuracy": 0.1,
+        "wilson95": [
+          0.027865893984153206,
+          0.30103820641179335
+        ],
+        "errors": 1,
+        "mean_rounds": 1,
+        "mean_calls": 1,
+        "known_tokens": 1943,
+        "usage_complete": false,
+        "tool_calls": 0,
+        "tool_failures": 0,
+        "solver_output_format_failures": 0,
+        "grading_unparsed": 1,
+        "accepted": 0,
+        "accepted_but_wrong": 0,
+        "parse_errors": 0
+      },
+      "baseline/single": {
+        "n": 20,
+        "correct": 9,
+        "accuracy": 0.45,
+        "wilson95": [
+          0.25819502085709295,
+          0.6579179916924003
+        ],
+        "errors": 1,
+        "mean_rounds": 2.95,
+        "mean_calls": 2.95,
+        "known_tokens": 30303,
+        "usage_complete": false,
+        "tool_calls": 39,
+        "tool_failures": 11,
+        "solver_output_format_failures": 0,
+        "grading_unparsed": 3,
+        "accepted": 0,
+        "accepted_but_wrong": 0,
+        "parse_errors": 2
+      },
+      "baseline/multi": {
+        "n": 20,
+        "correct": 6,
+        "accuracy": 0.3,
+        "wilson95": [
+          0.14547527396899385,
+          0.5189767762289793
+        ],
+        "errors": 0,
+        "mean_rounds": 3,
+        "mean_calls": 13,
+        "known_tokens": 116649,
+        "usage_complete": true,
+        "tool_calls": 120,
+        "tool_failures": 68,
+        "solver_output_format_failures": 48,
+        "grading_unparsed": 0,
+        "accepted": 0,
+        "accepted_but_wrong": 0,
+        "parse_errors": 5
+      },
+      "optimized/multi": {
+        "n": 20,
+        "correct": 6,
+        "accuracy": 0.3,
+        "wilson95": [
+          0.14547527396899385,
+          0.5189767762289793
+        ],
+        "errors": 2,
+        "mean_rounds": 2.4,
+        "mean_calls": 6.2,
+        "known_tokens": 60333,
+        "usage_complete": false,
+        "tool_calls": 78,
+        "tool_failures": 18,
+        "solver_output_format_failures": 4,
+        "grading_unparsed": 5,
+        "accepted": 5,
+        "accepted_but_wrong": 0,
+        "parse_errors": 0
+      }
+    },
+    "paired": {
+      "paired_complete_n": 18,
+      "baseline_correct": 5,
+      "optimized_correct": 6,
+      "wins": 3,
+      "losses": 2,
+      "mcnemar_exact_p": 1.0,
+      "baseline_tokens": 106474,
+      "optimized_tokens": 58023,
+      "token_change_fraction": -0.4550500591693747
+    }
+  }
+}

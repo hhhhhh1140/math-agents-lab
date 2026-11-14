@@ -1,0 +1,7 @@
+{
+  "dataset": "gsm8k",
+  "split": "test",
+  "revision": "main",
+  "fingerprint": "59ec1b7f9357c7a2",
+  "count": 1319
+}

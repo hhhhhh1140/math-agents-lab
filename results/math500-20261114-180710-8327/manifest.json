@@ -1,0 +1,49 @@
+{
+  "command": "run",
+  "data": "data/math500.jsonl",
+  "output": "results/math500-20261114-180710-8327",
+  "modes": [
+    "direct",
+    "single",
+    "multi"
+  ],
+  "limit": 2,
+  "seed": 42,
+  "max_rounds": 3,
+  "max_tokens": 2048,
+  "temperature": 0,
+  "demo": false,
+  "model": "Qwen/Qwen2.5-7B-Instruct",
+  "prices_per_million_usd": {
+    "input": null,
+    "output": null,
+    "cached": null
+  },
+  "prompts": {
+    "direct": "Solve the math problem carefully without tools. Return {\"answer\":\"final value or LaTeX expression only\"}.",
+    "planner": "Decompose the problem, identify equations and constraints. Return {\"plan\":\"steps\"}.",
+    "solver": "Write Python/SymPy to solve the original problem following the plan and feedback. Print the candidate answer. Return {\"code\":\"executable Python\"}.",
+    "finalizer": "Read the solver code and actual execution output. Return {\"answer\":\"final value or LaTeX expression only\"}. Do not claim failed execution succeeded.",
+    "single": "Solve the problem using Python/SymPy as needed. Return either {\"code\":\"Python that prints results\"} or {\"answer\":\"final value or LaTeX expression only\"}. Use tool history to correct errors. If final_only is true you MUST give an answer.",
+    "verifier": "Independently check the candidate answer against the ORIGINAL problem. Write Python/SymPy that substitutes it into original conditions, checks domain constraints and completeness, or independently recomputes the result. Do not merely rerun solver code. Print PASS only if all checks succeed, otherwise FAIL. Return {\"code\":\"Python checks\", \"reason\":\"what is checked\"}.",
+    "reviewer": "Review the original problem, solution and independent check. Reject incorrect, incomplete or unsupported answers. Tool success alone is not mathematical proof. Return {\"accept\":true or false,\"feedback\":\"specific corrections or justification\"}."
+  },
+  "data_sha256": "3e13b8d038122fb3011a1890b8e4a0a4445fa201638fa48875c04a096e5ff508",
+  "selected_ids": [
+    [
+      "math500",
+      "test/precalculus/697.json"
+    ],
+    [
+      "math500",
+      "test/algebra/101.json"
+    ]
+  ],
+  "packages": {
+    "langgraph": "1.2.21",
+    "math-verify": "0.9.0",
+    "sympy": "1.14.0",
+    "datasets": "4.8.5",
+    "httpx": "0.28.1"
+  }
+}

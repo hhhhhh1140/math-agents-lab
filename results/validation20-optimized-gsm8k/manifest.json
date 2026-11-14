@@ -1,0 +1,122 @@
+{
+  "command": "run",
+  "data": "data/gsm8k-validation20.jsonl",
+  "output": "results/validation20-optimized-gsm8k",
+  "modes": [
+    "multi"
+  ],
+  "limit": null,
+  "seed": 42,
+  "max_rounds": 3,
+  "max_tokens": 2048,
+  "temperature": 0,
+  "workflow": "optimized",
+  "demo": false,
+  "model": "Qwen/Qwen2.5-7B-Instruct",
+  "json_mode": true,
+  "api_uses_proxy": false,
+  "prices_per_million_usd": {
+    "input": null,
+    "output": null,
+    "cached": null
+  },
+  "prompts": {
+    "direct": "Solve the math problem carefully without tools. Return {\"answer\":\"final value or LaTeX expression only\"}.",
+    "planner": "Analyze the original math problem. Identify quantities, equations, domain restrictions, and the exact quantity requested. Return one JSON object with a plan string containing a short concrete solution strategy. Do not output a template or placeholder.",
+    "solver": "Solve the original problem by writing a complete executable Python 3 program. Return a JSON object with exactly one key code whose value is the FULL Python source. The program MUST print exactly ONE line: the final mathematical answer, with no labels. For symbolic expressions use sympy.latex(answer); for numbers print(answer). A bare expression is NOT printed in a script. Include all imports and definitions. Use exact fractions (sympy.Rational), and radians (degrees*pi/180) for trigonometry. Do not call .evalf() on Python floats. For inequalities prefer solve_univariate_inequality. Only Python standard library and SymPy are installed. No network, files, input() or pip. Read any previous error and correct its cause. Preserve correct calculations. Never return words such as executable Python in place of actual code. Example for the unrelated problem 2+3: {\"code\":\"print(2 + 3)\"}.",
+    "finalizer": "Read the solver code and actual execution output. Return {\"answer\":\"final value or LaTeX expression only\"}. Do not claim failed execution succeeded.",
+    "single": "Solve the problem using Python/SymPy as needed. Return either {\"code\":\"Python that prints results\"} or {\"answer\":\"final value or LaTeX expression only\"}. Use tool history to correct errors. If final_only is true you MUST give an answer.",
+    "verifier": "Independently verify the candidate against the ORIGINAL problem. Return one JSON object with keys code (COMPLETE executable Python source) and reason (short explanation). Independently recompute the requested quantity or substitute the candidate into original conditions. Check constraints and completeness. The program must print exactly PASS if the candidate is correct, otherwise exactly FAIL. Do not print explanations. Use actual computations and assertions, never unconditional print('PASS'). Include imports; only standard library and SymPy exist. Do not use parse_latex or external libraries; translate the provided candidate into a Python/SymPy expression. Exact symbolic comparisons are preferred; for numerical values use an explicit tolerance. If previous_check contains an execution error, repair that check using its traceback. Never return the literal words Python checks. Example for unrelated problem 2+3, candidate 5: {\"code\":\"expected = 2 + 3\\nprint('PASS' if expected == 5 else 'FAIL')\",\"reason\":\"Recompute the sum and compare\"}.",
+    "reviewer": "Review the original problem and actual solution and verification evidence. Return a JSON object with accept (boolean) and feedback (specific explanation). Approve only if the answer solves the requested question, respects the domain, and the independent check actually establishes correctness. Reject unconditional PASS and checks of unrelated facts. Do not change the candidate answer. If rejecting, explain the exact issue to fix."
+  },
+  "data_sha256": "11c7c9068825e6dd160807807abcb8d4726bc71b36af360db44f69c1103abc41",
+  "selected_ids": [
+    [
+      "gsm8k",
+      "gsm8k/test/390"
+    ],
+    [
+      "gsm8k",
+      "gsm8k/test/984"
+    ],
+    [
+      "gsm8k",
+      "gsm8k/test/522"
+    ],
+    [
+      "gsm8k",
+      "gsm8k/test/1067"
+    ],
+    [
+      "gsm8k",
+      "gsm8k/test/568"
+    ],
+    [
+      "gsm8k",
+      "gsm8k/test/1136"
+    ],
+    [
+      "gsm8k",
+      "gsm8k/test/429"
+    ],
+    [
+      "gsm8k",
+      "gsm8k/test/387"
+    ],
+    [
+      "gsm8k",
+      "gsm8k/test/427"
+    ],
+    [
+      "gsm8k",
+      "gsm8k/test/797"
+    ],
+    [
+      "gsm8k",
+      "gsm8k/test/611"
+    ],
+    [
+      "gsm8k",
+      "gsm8k/test/499"
+    ],
+    [
+      "gsm8k",
+      "gsm8k/test/728"
+    ],
+    [
+      "gsm8k",
+      "gsm8k/test/1269"
+    ],
+    [
+      "gsm8k",
+      "gsm8k/test/653"
+    ],
+    [
+      "gsm8k",
+      "gsm8k/test/879"
+    ],
+    [
+      "gsm8k",
+      "gsm8k/test/960"
+    ],
+    [
+      "gsm8k",
+      "gsm8k/test/1068"
+    ],
+    [
+      "gsm8k",
+      "gsm8k/test/815"
+    ],
+    [
+      "gsm8k",
+      "gsm8k/test/962"
+    ]
+  ],
+  "packages": {
+    "langgraph": "1.2.21",
+    "math-verify": "0.9.0",
+    "sympy": "1.14.0",
+    "datasets": "4.8.5",
+    "httpx": "0.28.1"
+  }
+}

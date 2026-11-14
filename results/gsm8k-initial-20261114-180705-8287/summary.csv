@@ -1,0 +1,4 @@
+dataset,mode,n,accuracy,errors,unparsed,mean_input_tokens,total_input_tokens,mean_output_tokens,total_output_tokens,mean_cached_tokens,mean_estimated_cost_usd,total_estimated_cost_usd,mean_llm_calls,mean_tool_calls,mean_rounds,mean_latency_seconds
+gsm8k,direct,2,0.5,0,0,103.5,207,6,12,0,,,1,0,1,0.36072547950000455
+gsm8k,multi,2,1,0,0,2657,5314,966.5,1933,304,,,13,6,3,29.545083451500005
+gsm8k,single,2,0.5,0,1,550,1100,171.5,343,112,,,3,2,3,5.950845982000004

@@ -1,0 +1,121 @@
+{
+  "command": "run",
+  "data": "data/math500-validation20.jsonl",
+  "output": "results/consensus-validation20-math500",
+  "modes": [
+    "direct",
+    "single",
+    "multi"
+  ],
+  "limit": null,
+  "seed": 42,
+  "max_rounds": 3,
+  "max_tokens": 4096,
+  "temperature": 0,
+  "workflow": "consensus",
+  "workers": 6,
+  "demo": false,
+  "model": "Qwen/Qwen2.5-7B-Instruct",
+  "json_mode": false,
+  "api_uses_proxy": false,
+  "prices_per_million_usd": {
+    "input": null,
+    "output": null,
+    "cached": null
+  },
+  "prompts": {
+    "reasoner": "You are a careful mathematician. Solve the problem step by step, showing the work. Restate what is asked, then derive the result, then check it against every condition of the problem before answering. Finish with the final answer inside \\boxed{...}. The box holds only the answer in simplest exact form (LaTeX fraction, radical or pi rather than a rounded decimal, unless the problem asks for a decimal), without units and without restating the question.",
+    "coder": "You solve math problems by writing a Python 3 program. First describe the approach in two or three sentences, then give ONE complete program in a ```python fenced block.\nRules: only the standard library and SymPy are installed; no input, files or network. Compute the answer from the conditions of the problem, by exact arithmetic (sympy.Rational, sympy.sqrt, integers) or by brute-force enumeration when the search space is small. Do not hard-code a result worked out in your head. The LAST line the program prints must be the final answer alone, with no label; printing a SymPy expression gives exact LaTeX. A bare expression prints nothing, so call print().",
+    "referee": "You are the referee for two independent attempts at the same math problem. They do not agree, so at least one is wrong. Solution A is step-by-step reasoning. Solution B is a Python program with its real output; the arithmetic it performed is reliable, but it may model the problem incorrectly. Reread the problem, find the first mistake in each attempt, and work out the correct answer yourself step by step. Finish with the final answer inside \\boxed{...}. The box holds only the answer in simplest exact form (LaTeX fraction, radical or pi rather than a rounded decimal, unless the problem asks for a decimal), without units and without restating the question."
+  },
+  "data_sha256": "90062a1ad6156168bac5d0887f04be75acb16aada89dbbd5c255377c401ed560",
+  "selected_ids": [
+    [
+      "math500",
+      "test/algebra/621.json"
+    ],
+    [
+      "math500",
+      "test/number_theory/72.json"
+    ],
+    [
+      "math500",
+      "test/number_theory/368.json"
+    ],
+    [
+      "math500",
+      "test/intermediate_algebra/1806.json"
+    ],
+    [
+      "math500",
+      "test/algebra/2584.json"
+    ],
+    [
+      "math500",
+      "test/intermediate_algebra/190.json"
+    ],
+    [
+      "math500",
+      "test/algebra/1199.json"
+    ],
+    [
+      "math500",
+      "test/precalculus/1201.json"
+    ],
+    [
+      "math500",
+      "test/number_theory/203.json"
+    ],
+    [
+      "math500",
+      "test/algebra/1282.json"
+    ],
+    [
+      "math500",
+      "test/algebra/1519.json"
+    ],
+    [
+      "math500",
+      "test/prealgebra/1251.json"
+    ],
+    [
+      "math500",
+      "test/geometry/172.json"
+    ],
+    [
+      "math500",
+      "test/prealgebra/1388.json"
+    ],
+    [
+      "math500",
+      "test/number_theory/679.json"
+    ],
+    [
+      "math500",
+      "test/intermediate_algebra/428.json"
+    ],
+    [
+      "math500",
+      "test/geometry/615.json"
+    ],
+    [
+      "math500",
+      "test/geometry/711.json"
+    ],
+    [
+      "math500",
+      "test/geometry/880.json"
+    ],
+    [
+      "math500",
+      "test/prealgebra/1113.json"
+    ]
+  ],
+  "packages": {
+    "langgraph": "1.2.21",
+    "math-verify": "0.9.0",
+    "sympy": "1.14.0",
+    "datasets": "4.8.5",
+    "httpx": "0.28.1"
+  }
+}

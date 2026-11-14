@@ -1,0 +1,40 @@
+[
+  {
+    "dataset": "math500",
+    "mode": "direct",
+    "n": 100,
+    "accuracy": 0.97,
+    "errors": 0,
+    "unparsed": 0,
+    "mean_input_tokens": 196.15,
+    "total_input_tokens": 19615,
+    "mean_output_tokens": 850.93,
+    "total_output_tokens": 85093,
+    "mean_cached_tokens": 0,
+    "mean_estimated_cost_usd": null,
+    "total_estimated_cost_usd": null,
+    "mean_llm_calls": 1,
+    "mean_tool_calls": 0,
+    "mean_rounds": 1,
+    "mean_latency_seconds": 11.42452815165998
+  },
+  {
+    "dataset": "math500",
+    "mode": "multi",
+    "n": 100,
+    "accuracy": 0.99,
+    "errors": 0,
+    "unparsed": 0,
+    "mean_input_tokens": null,
+    "total_input_tokens": null,
+    "mean_output_tokens": null,
+    "total_output_tokens": null,
+    "mean_cached_tokens": null,
+    "mean_estimated_cost_usd": null,
+    "total_estimated_cost_usd": null,
+    "mean_llm_calls": 2.1,
+    "mean_tool_calls": 1,
+    "mean_rounds": 1.02,
+    "mean_latency_seconds": 44.95465652658975
+  }
+]

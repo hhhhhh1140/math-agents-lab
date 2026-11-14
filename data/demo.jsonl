@@ -1,0 +1,2 @@
+{"id":"demo/arithmetic","dataset":"demo","problem":"A box contains 4 bags with 3 marbles each. How many marbles are in the box?","answer":"12"}
+{"id":"demo/equation","dataset":"demo","problem":"Solve 2*x + 1 = 7 for x.","answer":"3"}

@@ -1,0 +1,85 @@
+#!/usr/bin/env bash
+set -euo pipefail
+cd "$(dirname "$0")"
+export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
+
+compose() {
+  if docker compose version >/dev/null 2>&1; then
+    docker compose "$@"
+  else
+    docker-compose "$@"
+  fi
+}
+
+engine() {
+  command -v docker >/dev/null || { echo '请先安装 Docker（macOS: brew install --formula colima docker docker-compose docker-buildx）'; exit 1; }
+  if ! docker info >/dev/null 2>&1; then
+    if command -v colima >/dev/null; then
+      colima start --cpu 2 --memory 4 --disk 30 --runtime docker
+    else
+      echo '请启动 Docker Desktop 后重试。'; exit 1
+    fi
+  fi
+  local endpoint
+  endpoint="${DOCKER_HOST:-$(docker context inspect --format '{{.Endpoints.docker.Host}}')}"
+  case "$endpoint" in
+    unix://*) : ;; # Bind source is resolved inside the Linux VM, not on macOS.
+    *) echo '此启动脚本需要本机 Unix Docker socket。'; exit 1 ;;
+  esac
+  mkdir -p data results .cache
+  if [[ ! -f .env ]]; then
+    cp .env.example .env
+    chmod 600 .env
+  fi
+}
+
+prepare() {
+  local dataset
+  for dataset in gsm8k math500; do
+    if [[ ! -s "data/$dataset.jsonl" ]]; then
+      compose run --rm lab prepare --dataset "$dataset" --output "data/$dataset.jsonl"
+    fi
+  done
+}
+
+case "${1:-help}" in
+  setup)
+    engine
+    compose build lab sandbox
+    compose run --rm -e MATH_TEST_DOCKER=1 --entrypoint python lab -m pytest -q
+    prepare
+    echo '部署完成。请在 .env 填入 MATH_API_KEY、MATH_BASE_URL 和 MATH_MODEL。'
+    ;;
+  start) engine; docker info --format 'Docker Engine {{.ServerVersion}} ready' ;;
+  test) engine; compose run --rm -e MATH_TEST_DOCKER=1 --entrypoint python lab -m pytest -q ;;
+  prepare) engine; prepare ;;
+  demo)
+    engine
+    compose run --rm lab run --demo --data data/demo.jsonl --output "results/demo-$(date +%Y%m%d-%H%M%S)-$$"
+    ;;
+  run)
+    dataset="${2:-gsm8k}"
+    [[ "$dataset" == gsm8k || "$dataset" == math500 ]] || { echo '数据集必须是 gsm8k 或 math500'; exit 1; }
+    limit="${3:-20}"
+    workflow="${4:-consensus}"
+    [[ "$workflow" == baseline || "$workflow" == optimized || "$workflow" == consensus ]] || { echo '流程必须是 baseline、optimized 或 consensus'; exit 1; }
+    run_args=(run --data "data/$dataset.jsonl" --workflow "$workflow" --workers "${MATH_WORKERS:-4}")
+    if [[ "$limit" != all ]]; then
+      [[ "$limit" =~ ^[1-9][0-9]*$ ]] || { echo '题数必须是正整数或 all'; exit 1; }
+      run_args+=(--limit "$limit")
+    fi
+    engine
+    compose run --rm --entrypoint python lab -c 'import os,sys; missing=[k for k in ("MATH_API_KEY","MATH_BASE_URL","MATH_MODEL") if not os.getenv(k)]; sys.exit("请先在 .env 填写: " + ", ".join(missing)) if missing else None'
+    prepare
+    compose run --rm lab "${run_args[@]}" --output "results/$dataset-$(date +%Y%m%d-%H%M%S)-$$"
+    ;;
+  *)
+    echo './lab setup                构建镜像、运行测试、下载两个测试集'
+    echo './lab start                启动 Docker 环境'
+    echo './lab test                 运行含 Docker 的全部测试'
+    echo './lab demo                 无需 API 的演示'
+    echo './lab run gsm8k 20         三组对照，20 题'
+    echo './lab run math500 all      三组对照，全量测试'
+    echo './lab run gsm8k 20 baseline 使用原版多 Agent 流程（optimized 为第二版，默认 consensus）'
+    ;;
+esac

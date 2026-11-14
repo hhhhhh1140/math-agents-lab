@@ -1,0 +1,123 @@
+{
+  "command": "run",
+  "data": "data/gsm8k-validation20.jsonl",
+  "output": "results/validation20-baseline-gsm8k",
+  "modes": [
+    "direct",
+    "single",
+    "multi"
+  ],
+  "limit": null,
+  "seed": 42,
+  "max_rounds": 3,
+  "max_tokens": 2048,
+  "temperature": 0,
+  "demo": false,
+  "model": "Qwen/Qwen2.5-7B-Instruct",
+  "json_mode": true,
+  "api_uses_proxy": false,
+  "prices_per_million_usd": {
+    "input": null,
+    "output": null,
+    "cached": null
+  },
+  "prompts": {
+    "direct": "Solve the math problem carefully without tools. Return {\"answer\":\"final value or LaTeX expression only\"}.",
+    "planner": "Decompose the problem, identify equations and constraints. Return {\"plan\":\"steps\"}.",
+    "solver": "Write Python/SymPy to solve the original problem following the plan and feedback. Print the candidate answer. Return {\"code\":\"executable Python\"}.",
+    "finalizer": "Read the solver code and actual execution output. Return {\"answer\":\"final value or LaTeX expression only\"}. Do not claim failed execution succeeded.",
+    "single": "Solve the problem using Python/SymPy as needed. Return either {\"code\":\"Python that prints results\"} or {\"answer\":\"final value or LaTeX expression only\"}. Use tool history to correct errors. If final_only is true you MUST give an answer.",
+    "verifier": "Independently check the candidate answer against the ORIGINAL problem. Write Python/SymPy that substitutes it into original conditions, checks domain constraints and completeness, or independently recomputes the result. Do not merely rerun solver code. Print PASS only if all checks succeed, otherwise FAIL. Return {\"code\":\"Python checks\", \"reason\":\"what is checked\"}.",
+    "reviewer": "Review the original problem, solution and independent check. Reject incorrect, incomplete or unsupported answers. Tool success alone is not mathematical proof. Return {\"accept\":true or false,\"feedback\":\"specific corrections or justification\"}."
+  },
+  "data_sha256": "11c7c9068825e6dd160807807abcb8d4726bc71b36af360db44f69c1103abc41",
+  "selected_ids": [
+    [
+      "gsm8k",
+      "gsm8k/test/390"
+    ],
+    [
+      "gsm8k",
+      "gsm8k/test/984"
+    ],
+    [
+      "gsm8k",
+      "gsm8k/test/522"
+    ],
+    [
+      "gsm8k",
+      "gsm8k/test/1067"
+    ],
+    [
+      "gsm8k",
+      "gsm8k/test/568"
+    ],
+    [
+      "gsm8k",
+      "gsm8k/test/1136"
+    ],
+    [
+      "gsm8k",
+      "gsm8k/test/429"
+    ],
+    [
+      "gsm8k",
+      "gsm8k/test/387"
+    ],
+    [
+      "gsm8k",
+      "gsm8k/test/427"
+    ],
+    [
+      "gsm8k",
+      "gsm8k/test/797"
+    ],
+    [
+      "gsm8k",
+      "gsm8k/test/611"
+    ],
+    [
+      "gsm8k",
+      "gsm8k/test/499"
+    ],
+    [
+      "gsm8k",
+      "gsm8k/test/728"
+    ],
+    [
+      "gsm8k",
+      "gsm8k/test/1269"
+    ],
+    [
+      "gsm8k",
+      "gsm8k/test/653"
+    ],
+    [
+      "gsm8k",
+      "gsm8k/test/879"
+    ],
+    [
+      "gsm8k",
+      "gsm8k/test/960"
+    ],
+    [
+      "gsm8k",
+      "gsm8k/test/1068"
+    ],
+    [
+      "gsm8k",
+      "gsm8k/test/815"
+    ],
+    [
+      "gsm8k",
+      "gsm8k/test/962"
+    ]
+  ],
+  "packages": {
+    "langgraph": "1.2.21",
+    "math-verify": "0.9.0",
+    "sympy": "1.14.0",
+    "datasets": "4.8.5",
+    "httpx": "0.28.1"
+  }
+}
